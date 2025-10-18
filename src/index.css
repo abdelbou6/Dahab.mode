@@ -38,15 +38,15 @@
   }
   
   .btn-primary {
-    @apply bg-teal-DEFAULT text-white hover:bg-teal-dark focus:ring-teal-DEFAULT;
+    @apply bg-teal text-white hover:bg-teal-dark focus:ring-teal;
   }
   
   .btn-secondary {
-    @apply bg-gold-DEFAULT text-white hover:bg-gold-dark focus:ring-gold-DEFAULT;
+    @apply bg-gold text-white hover:bg-gold-dark focus:ring-gold;
   }
   
   .btn-outline {
-    @apply border-2 border-teal-DEFAULT text-teal-DEFAULT hover:bg-teal-DEFAULT hover:text-white focus:ring-teal-DEFAULT;
+    @apply border-2 border-teal text-teal hover:bg-teal hover:text-white focus:ring-teal;
   }
   
   .container-custom {

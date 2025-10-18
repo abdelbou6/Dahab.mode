@@ -24,10 +24,10 @@ const Button = ({
   const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-teal-DEFAULT text-white hover:bg-teal-dark focus:ring-teal-DEFAULT disabled:bg-teal-light',
-    secondary: 'bg-gold-DEFAULT text-white hover:bg-gold-dark focus:ring-gold-DEFAULT disabled:bg-gold-light',
-    outline: 'border-2 border-teal-DEFAULT text-teal-DEFAULT hover:bg-teal-DEFAULT hover:text-white focus:ring-teal-DEFAULT disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-transparent',
-    text: 'text-teal-DEFAULT hover:text-teal-dark focus:ring-transparent disabled:text-gray-400',
+    primary: 'bg-teal text-white hover:bg-teal-dark focus:ring-teal disabled:bg-teal-light',
+    secondary: 'bg-gold text-white hover:bg-gold-dark focus:ring-gold disabled:bg-gold-light',
+    outline: 'border-2 border-teal text-teal hover:bg-teal hover:text-white focus:ring-teal disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-transparent',
+    text: 'text-teal hover:text-teal-dark focus:ring-transparent disabled:text-gray-400',
   };
   
   const sizeClasses = {

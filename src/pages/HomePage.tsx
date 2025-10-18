@@ -1,60 +1,129 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
-import Slider from 'react-slick';
-import { products, testimonials } from '../data/products';
-import Button from '../components/ui/Button';
+import { ArrowRight, GraduationCap, Layers, Target, Users, Calendar, FileText, Sparkles, Lightbulb, Building2 } from 'lucide-react';
+
+const pathwayCards = [
+  {
+    title: 'BTS Services Informatiques aux Organisations',
+    subtitle: 'Option SISR ou SLAM',
+    description:
+      'Deux ans pour approfondir l’administration des réseaux ou le développement applicatif. Formation très demandée qui accueille chaque année de nombreux bacheliers pro CIEL.',
+    highlights: ['Stage de 8 à 12 semaines', 'Poursuites possibles en licence pro ou école spécialisée', 'Admission sur dossier Parcoursup'],
+    link: 'https://www.onisep.fr/ressources/univers-formation/formations-post-bac/bts-services-informatiques-aux-organisations',
+  },
+  {
+    title: 'BUT Réseaux & Télécoms ou Informatique',
+    subtitle: 'IUT en 3 ans',
+    description:
+      'Un cursus professionnalisant avec un fort encadrement, idéal pour viser un niveau bac+3. Le BUT valorise les projets tutorés et les périodes en entreprise.',
+    highlights: ['Accès à la licence ou aux écoles d’ingénieurs en apprentissage', 'Spécialisation progressive dès la 2e année', 'Possibilité de parcours anglophone selon les IUT'],
+    link: 'https://www.onisep.fr/ressources/univers-formation/formations-post-bac/but-reseaux-et-telecommunications',
+  },
+  {
+    title: 'Licences professionnelles & Écoles spécialisées',
+    subtitle: 'Cybersécurité, Cloud, IoT…',
+    description:
+      'Après un BTS ou un BUT, ces formations ciblées renforcent votre expertise technique. Certaines écoles privées proposent également des cursus en alternance accessibles après un bac pro.',
+    highlights: ['Alternance plébiscitée par les recruteurs', 'Taux d’insertion rapides (6 mois après le diplôme)', 'Réseau d’anciens et projets concrets'],
+    link: 'https://www.letudiant.fr/etudes/licence-pro.html',
+  },
+];
+
+const successPillars = [
+  {
+    icon: <GraduationCap className="h-6 w-6 text-teal" />,
+    title: 'Valoriser ses acquis',
+    description: 'Le bac pro CIEL offre une expérience pratique en maintenance, réseaux et cybersécurité : des atouts majeurs sur Parcoursup.',
+  },
+  {
+    icon: <Layers className="h-6 w-6 text-teal" />,
+    title: 'Construire par étapes',
+    description: 'Du BTS au BUT, chaque palier vous permet de consolider vos compétences et de choisir une spécialisation porteuse.',
+  },
+  {
+    icon: <Target className="h-6 w-6 text-teal" />,
+    title: 'Se projeter dans les métiers',
+    description: 'Technicien systèmes, administrateur cybersécurité, développeur full stack… Les métiers du numérique recrutent massivement.',
+  },
+];
+
+const timeline = [
+  {
+    period: 'Novembre - Janvier',
+    title: 'Explorer & tester ses envies',
+    details: 'Salons de l’orientation (Salon de l’Étudiant, Studyrama), immersion dans les IUT et lycées, rencontres avec les anciens élèves.',
+  },
+  {
+    period: 'Janvier - Mars',
+    title: 'Dossiers Parcoursup',
+    details: 'Constitution du dossier, lettres de motivation “Projet de formation motivé”, choix des spécialités et vœux groupés.',
+  },
+  {
+    period: 'Avril - Juin',
+    title: 'Entretiens & tests',
+    details: 'Certains BTS/BUT organisent des oraux ou évaluations techniques. Préparez un portfolio de projets réalisés en bac pro.',
+  },
+  {
+    period: 'Juin - Septembre',
+    title: 'Décisions & rentrée',
+    details: 'Phase d’admission, inscriptions administratives, recherche de logement ou d’entreprise pour l’alternance.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      '« Nos apprentis issus du bac pro CIEL sont opérationnels très rapidement. Leur culture réseau et cybersécurité est un vrai plus sur les projets SOC. »',
+    author: 'Responsable pédagogique – BTS SIO, Lycée Turgot (Paris)',
+  },
+  {
+    quote:
+      '« Après mon bac pro, j’ai intégré le BUT Réseaux & Télécoms de l’IUT de Vannes. Les projets tutorés et l’alternance m’ont permis de rejoindre Orange en CDI dès la diplomation. »',
+    author: 'Maëlys, promo 2023',
+  },
+  {
+    quote:
+      '« Les admissions parallèles en écoles d’ingénieurs sont accessibles aux profils motivés. Les bacs pro se distinguent par leur sens pratique et leur maturité. »',
+    author: 'CESI École d’Ingénieurs – Service Admissions',
+  },
+];
+
+const resources = [
+  {
+    title: 'Fiche formation BTS SIO – Onisep',
+    description: 'Programme détaillé, compétences visées et débouchés après le BTS Services Informatiques aux Organisations.',
+    link: 'https://www.onisep.fr/ressources/univers-formation/formations-post-bac/bts-services-informatiques-aux-organisations',
+  },
+  {
+    title: 'Calendrier Parcoursup 2024 – L’Étudiant',
+    description: 'Toutes les dates clés pour ne manquer aucune étape de la procédure.',
+    link: 'https://www.letudiant.fr/etudes/parcoursup/calendrier-parcoursup.html',
+  },
+  {
+    title: 'Trouver une alternance en cybersécurité – Onisep',
+    description: 'Conseils pratiques pour postuler en apprentissage dans les métiers du numérique.',
+    link: 'https://www.onisep.fr/ressources/univers-formation/les-metiers-en-region/ile-de-france/alternance-cybersecurite',
+  },
+  {
+    title: 'Guide des BUT numériques – L’Étudiant',
+    description: 'Comparatif des BUT Informatique, R&T, MMI… avec témoignages et taux d’insertion.',
+    link: 'https://www.letudiant.fr/etudes/but.html',
+  },
+];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const HomePage = () => {
-  // Settings for the featured products slider
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
-  };
-
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  // Filter featured products
-  const featuredProducts = products.filter(product => product.isFeatured);
-
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/6045109/pexels-photo-6045109.jpeg')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-navy-dark bg-opacity-50"></div>
-        <div className="container-custom relative z-10">
-          <motion.div 
-            className="max-w-2xl text-white"
+    <div className="bg-white" id="hero">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3861967/pexels-photo-3861967.jpeg')] bg-cover bg-center" aria-hidden="true"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark/90 via-navy-dark/80 to-navy-dark/60"></div>
+        <div className="container-custom relative z-10 py-24">
+          <motion.div
+            className="max-w-3xl text-white space-y-6"
             initial="hidden"
             animate="visible"
             variants={{
@@ -62,283 +131,209 @@ const HomePage = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.2
-                }
-              }
+                  staggerChildren: 0.2,
+                },
+              },
             }}
           >
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4"
-              variants={fadeInUp}
-            >
-              Elegant Modest <span className="text-gold-light">Swimwear</span>
+            <motion.span className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm uppercase tracking-wide" variants={fadeInUp}>
+              Bac Pro CIEL → Réussir sa poursuite d’études
+            </motion.span>
+            <motion.h1 className="text-4xl md:text-5xl font-bold" variants={fadeInUp}>
+              Cap sur l’avenir : toutes les clés pour poursuivre après un bac pro CIEL
             </motion.h1>
-            <motion.p 
-              className="text-lg md:text-xl mb-8 text-gray-100"
-              variants={fadeInUp}
-            >
-              Discover our premium collection of burkinis that combine style, comfort, and modesty for the modern woman.
+            <motion.p className="text-lg md:text-xl text-gray-100" variants={fadeInUp}>
+              Comparez les BTS, BUT, licences professionnelles et écoles d’ingénieurs qui recrutent les talents du numérique.
+              Inspirez-vous de témoignages d’étudiants et d’équipes pédagogiques pour bâtir votre projet.
             </motion.p>
-            <motion.div 
-              className="flex flex-wrap gap-4"
-              variants={fadeInUp}
-            >
-              <Link to="/products" className="btn btn-secondary">
-                Shop Collection
-              </Link>
-              <Link to="/about" className="btn btn-outline border-white text-white hover:bg-white hover:text-navy-dark">
-                Learn More
-              </Link>
+            <motion.div className="flex flex-wrap gap-4" variants={fadeInUp}>
+              <a href="#pathways" className="btn btn-secondary inline-flex items-center text-base">
+                Explorer les parcours
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <a
+                href="#resources"
+                className="btn btn-outline border-white text-white hover:text-navy-dark hover:bg-white"
+              >
+                Consulter les ressources
+              </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 bg-cream">
+      <section id="reasons" className="py-20 bg-cream">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-semibold mb-4">Shop by Category</h2>
-            <p className="text-navy max-w-2xl mx-auto">
-              Browse our selection of high-quality burkinis designed for different needs and preferences.
+          <div className="max-w-2xl mb-12">
+            <h2>Pourquoi poursuivre ses études après un bac pro CIEL ?</h2>
+            <p className="mt-4 text-navy">
+              Les entreprises recherchent des profils capables de sécuriser les infrastructures et de développer des solutions numériques.
+              En prolongeant vos études, vous gagnez en autonomie, en crédibilité et en niveau de recrutement.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Premium Collection */}
-            <Link to="/products?category=premium" className="group">
-              <div className="relative h-96 overflow-hidden rounded-lg">
-                <img 
-                  src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg" 
-                  alt="Premium Collection" 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent opacity-60"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="text-2xl font-heading font-medium mb-2">Premium Collection</h3>
-                  <p className="flex items-center text-gold-light">
-                    Shop Now <ArrowRight size={16} className="ml-2 group-hover:ml-3 transition-all" />
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {successPillars.map((pillar) => (
+              <div key={pillar.title} className="card p-6">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-teal-light/20 mb-4">
+                  {pillar.icon}
                 </div>
-              </div>
-            </Link>
-            
-            {/* Athletic Performance */}
-            <Link to="/products?category=athletic" className="group">
-              <div className="relative h-96 overflow-hidden rounded-lg">
-                <img 
-                  src="https://images.pexels.com/photos/6045098/pexels-photo-6045098.jpeg" 
-                  alt="Athletic Performance" 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent opacity-60"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="text-2xl font-heading font-medium mb-2">Athletic Performance</h3>
-                  <p className="flex items-center text-gold-light">
-                    Shop Now <ArrowRight size={16} className="ml-2 group-hover:ml-3 transition-all" />
-                  </p>
-                </div>
-              </div>
-            </Link>
-            
-            {/* Plus Size Range */}
-            <Link to="/products?category=plus-size" className="group">
-              <div className="relative h-96 overflow-hidden rounded-lg">
-                <img 
-                  src="https://images.pexels.com/photos/6311595/pexels-photo-6311595.jpeg" 
-                  alt="Plus Size Range" 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent opacity-60"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="text-2xl font-heading font-medium mb-2">Plus Size Range</h3>
-                  <p className="flex items-center text-gold-light">
-                    Shop Now <ArrowRight size={16} className="ml-2 group-hover:ml-3 transition-all" />
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products Section */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-semibold mb-4">Featured Products</h2>
-            <p className="text-navy max-w-2xl mx-auto">
-              Our most popular and highest quality burkinis loved by customers worldwide.
-            </p>
-          </div>
-          
-          <Slider {...sliderSettings} className="featured-products-slider">
-            {featuredProducts.map(product => (
-              <div key={product.id} className="px-2">
-                <div className="card h-full flex flex-col">
-                  <div className="relative h-80">
-                    <Link to={`/products/${product.id}`}>
-                      <img 
-                        src={product.images[0]} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover"
-                      />
-                    </Link>
-                    {product.isNew && (
-                      <span className="absolute top-4 left-4 bg-gold-DEFAULT text-white text-sm px-2 py-1 rounded">
-                        New
-                      </span>
-                    )}
-                    <button className="absolute top-4 right-4 bg-white p-2 rounded-full text-navy-dark hover:text-teal-DEFAULT transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="p-4 flex-grow flex flex-col">
-                    <div className="flex items-center mb-2">
-                      <div className="flex text-gold-DEFAULT">
-                        {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            size={16} 
-                            fill={i < Math.floor(product.rating) ? 'currentColor' : 'none'} 
-                          />
-                        ))}
-                      </div>
-                      <span className="ml-2 text-sm text-gray-500">({product.reviews})</span>
-                    </div>
-                    <h3 className="font-medium text-lg mb-1">
-                      <Link to={`/products/${product.id}`} className="hover:text-teal-DEFAULT">
-                        {product.name}
-                      </Link>
-                    </h3>
-                    <p className="text-gold-dark font-semibold mb-4">${product.price.toFixed(2)}</p>
-                    <div className="mt-auto">
-                      <Button 
-                        variant="primary" 
-                        fullWidth 
-                      >
-                        Add to Cart
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="mb-2 text-xl font-semibold text-navy-dark">{pillar.title}</h3>
+                <p className="text-navy">{pillar.description}</p>
               </div>
             ))}
-          </Slider>
-          
-          <div className="text-center mt-10">
-            <Link to="/products" className="btn btn-outline">
-              View All Products
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-teal-DEFAULT text-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-teal-dark rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-medium mb-2">Premium Quality</h3>
-              <p className="text-teal-100">Crafted with the finest materials for durability and comfort.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-teal-dark rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-medium mb-2">UV Protection</h3>
-              <p className="text-teal-100">Built-in UPF 50+ sun protection for safe swimming.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-teal-dark rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-medium mb-2">Fast Shipping</h3>
-              <p className="text-teal-100">Quick worldwide delivery with order tracking.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-teal-dark rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-medium mb-2">Easy Returns</h3>
-              <p className="text-teal-100">30-day hassle-free return policy for your peace of mind.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-semibold mb-4">What Our Customers Say</h2>
-            <p className="text-navy max-w-2xl mx-auto">
-              Hear from satisfied customers who love our burkinis.
+      <section id="pathways" className="py-20">
+        <div className="container-custom space-y-12">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center bg-teal-light/20 text-teal-dark rounded-full px-4 py-1 text-sm font-medium uppercase tracking-wide">Parcours en lumière</span>
+            <h2 className="mt-4">Les formations qui recrutent les bacheliers pro CIEL</h2>
+            <p className="mt-4 text-navy">
+              Ces cursus s’appuient sur les compétences techniques et professionnelles acquises en bac pro. Ils offrent des débouchés rapides
+              ou la possibilité de poursuivre jusqu’au niveau ingénieur.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {pathwayCards.map((pathway) => (
+              <article key={pathway.title} className="card h-full flex flex-col">
+                <div className="p-6 flex flex-col h-full">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-navy-dark">{pathway.title}</h3>
+                      <p className="text-sm uppercase tracking-wide text-teal-dark font-semibold mt-2">{pathway.subtitle}</p>
+                    </div>
+                    <Sparkles className="h-6 w-6 text-gold" />
+                  </div>
+                  <p className="mt-4 text-navy flex-1">{pathway.description}</p>
+                  <ul className="mt-6 space-y-2 text-sm text-navy-dark/80">
+                    {pathway.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-teal"></span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={pathway.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center text-teal hover:text-teal-dark font-semibold"
+                  >
+                    En savoir plus
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-br from-navy-dark via-navy-dark/95 to-navy-dark" id="timeline">
+        <div className="container-custom text-white space-y-12">
+          <div className="max-w-3xl">
+            <h2>Votre feuille de route Parcoursup</h2>
+            <p className="mt-4 text-gray-200">
+              Anticipez chaque étape pour maximiser vos chances d’admission : visites, dossiers, entretiens et installation.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {timeline.map((step) => (
+              <div key={step.period} className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/10">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-2 text-sm uppercase tracking-wide text-teal-light font-semibold">
+                    <Calendar className="h-4 w-4" />
+                    {step.period}
+                  </span>
+                  <FileText className="h-5 w-5 text-gold-light" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
+                <p className="mt-2 text-gray-200">{step.details}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20">
+        <div className="container-custom space-y-12">
+          <div className="max-w-2xl">
+            <h2>Ils et elles témoignent</h2>
+            <p className="mt-4 text-navy">
+              Des équipes pédagogiques et des anciens élèves confirment la réussite des parcours post-bac pro CIEL.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-soft">
-                <div className="flex text-gold-DEFAULT mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      size={18} 
-                      fill={i < testimonial.rating ? 'currentColor' : 'none'} 
-                    />
-                  ))}
-                </div>
-                <p className="text-navy-DEFAULT mb-4 italic">"{testimonial.comment}"</p>
-                <div className="flex items-center">
-                  <div className="bg-teal-light rounded-full w-10 h-10 flex items-center justify-center text-white font-medium">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-medium">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.location}</p>
-                  </div>
-                </div>
-              </div>
+              <figure key={testimonial.author} className="card h-full p-6 flex flex-col justify-between bg-cream">
+                <Users className="h-10 w-10 text-teal" />
+                <blockquote className="mt-4 text-navy italic leading-relaxed">{testimonial.quote}</blockquote>
+                <figcaption className="mt-6 text-sm font-semibold text-navy-dark">{testimonial.author}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-16 bg-navy-DEFAULT text-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-heading font-semibold mb-4">Join Our Newsletter</h2>
-            <p className="mb-8 text-gray-300">
-              Subscribe to receive updates on new collections, exclusive offers, and styling tips.
+      <section className="py-20 bg-cream" id="resources">
+        <div className="container-custom space-y-12">
+          <div className="max-w-3xl">
+            <h2>Ressources incontournables</h2>
+            <p className="mt-4 text-navy">
+              Sélection de contenus fiables inspirés d’Onisep, de l’Étudiant et d’établissements partenaires pour approfondir chaque piste.
             </p>
-            <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-gold-DEFAULT"
-              />
-              <button className="btn btn-secondary">
-                Subscribe
-              </button>
-            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {resources.map((resource) => (
+              <article key={resource.title} className="card p-6 h-full flex flex-col">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-full bg-teal-light/30 flex items-center justify-center">
+                    <Lightbulb className="h-6 w-6 text-teal" />
+                  </div>
+                  <Building2 className="h-6 w-6 text-gold" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold text-navy-dark">{resource.title}</h3>
+                <p className="mt-3 text-navy flex-1">{resource.description}</p>
+                <a
+                  href={resource.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center text-teal hover:text-teal-dark font-semibold"
+                >
+                  Consulter la ressource
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container-custom bg-gradient-to-r from-teal-dark to-navy-dark text-white rounded-3xl px-10 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="text-3xl font-bold">Prêt·e à lancer votre dossier ?</h2>
+            <p className="text-gray-100">
+              Téléchargez notre checklist “Dossier Parcoursup spécial bac pro CIEL” et planifiez un rendez-vous avec un conseiller en orientation.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://forms.gle/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary text-base"
+            >
+              Télécharger la checklist
+            </a>
+            <a
+              href="mailto:contact@cap-avenir-ciel.fr"
+              className="btn btn-outline border-white text-white hover:text-navy-dark hover:bg-white"
+            >
+              Écrire à un conseiller
+            </a>
           </div>
         </div>
       </section>

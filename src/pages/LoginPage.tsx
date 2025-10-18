@@ -57,7 +57,7 @@ const LoginPage = () => {
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                     Password
                   </label>
-                  <Link to="/forgot-password" className="text-sm text-teal-DEFAULT hover:text-teal-dark">
+                  <Link to="/forgot-password" className="text-sm text-teal hover:text-teal-dark">
                     Forgot Password?
                   </Link>
                 </div>
@@ -103,7 +103,7 @@ const LoginPage = () => {
             <div className="text-center">
               <p className="text-gray-600">
                 Don't have an account? {' '}
-                <Link to="/register" className="text-teal-DEFAULT hover:text-teal-dark font-medium">
+                <Link to="/register" className="text-teal hover:text-teal-dark font-medium">
                   Create Account
                 </Link>
               </p>

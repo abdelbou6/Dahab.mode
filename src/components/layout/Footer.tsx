@@ -1,126 +1,100 @@
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import Logo from '../ui/Logo';
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-dark text-white pt-16 pb-8">
+    <footer className="bg-navy-dark text-white pt-16 pb-8" id="footer">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <Logo color="light" size="medium" />
+            <Logo color="light" size="medium" withLink={false} />
             <p className="mt-4 text-gray-300">
-              Dahab.mode specializes in premium quality burkinis and modest swimwear that combine elegance, comfort, and functionality.
+              Cap Avenir CIEL accompagne les bacheliers professionnels CIEL dans la construction d’un projet d’études ambitieux,
+              réaliste et aligné sur les besoins du numérique.
             </p>
-            <div className="flex mt-6 space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold-DEFAULT" aria-label="Facebook">
-                <Facebook size={20} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold-DEFAULT" aria-label="Instagram">
-                <Instagram size={20} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold-DEFAULT" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold-DEFAULT" aria-label="YouTube">
-                <Youtube size={20} />
-              </a>
-            </div>
           </div>
 
-          {/* Shop Links */}
           <div>
-            <h3 className="text-lg font-medium mb-4 text-white">Shop</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 text-white">Raccourcis</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li><a href="#reasons" className="hover:text-gold">Pourquoi poursuivre ?</a></li>
+              <li><a href="#pathways" className="hover:text-gold">Parcours conseillés</a></li>
+              <li><a href="#testimonials" className="hover:text-gold">Témoignages</a></li>
+              <li><a href="#resources" className="hover:text-gold">Ressources utiles</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contacts des écoles</h3>
+            <ul className="space-y-3 text-gray-300 text-sm">
               <li>
-                <Link to="/products" className="text-gray-300 hover:text-gold-DEFAULT">All Products</Link>
+                <span className="block font-semibold text-white">IUT de Vélizy (BUT Réseaux & Télécoms)</span>
+                <a
+                  href="https://iut-velizy-rt.uvsq.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  iut-velizy-rt.uvsq.fr
+                </a>
               </li>
               <li>
-                <Link to="/products?filter=new" className="text-gray-300 hover:text-gold-DEFAULT">New Arrivals</Link>
+                <span className="block font-semibold text-white">Lycée Turgot – BTS SIO</span>
+                <a
+                  href="https://lycee-turgot.fr/formation/bts-sio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  lycee-turgot.fr
+                </a>
               </li>
               <li>
-                <Link to="/products?category=premium" className="text-gray-300 hover:text-gold-DEFAULT">Premium Collection</Link>
-              </li>
-              <li>
-                <Link to="/products?category=athletic" className="text-gray-300 hover:text-gold-DEFAULT">Athletic Burkinis</Link>
-              </li>
-              <li>
-                <Link to="/products?category=plus-size" className="text-gray-300 hover:text-gold-DEFAULT">Plus Size Range</Link>
-              </li>
-              <li>
-                <Link to="/products?sort=bestselling" className="text-gray-300 hover:text-gold-DEFAULT">Best Sellers</Link>
+                <span className="block font-semibold text-white">CESI École d’Ingénieurs</span>
+                <a
+                  href="https://www.cesi.fr/formation/ingenieur-specialite-informatique"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  cesi.fr
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Support Links */}
           <div>
-            <h3 className="text-lg font-medium mb-4 text-white">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/help" className="text-gray-300 hover:text-gold-DEFAULT">Help Center</Link>
-              </li>
-              <li>
-                <Link to="/help/shipping" className="text-gray-300 hover:text-gold-DEFAULT">Shipping Information</Link>
-              </li>
-              <li>
-                <Link to="/help/returns" className="text-gray-300 hover:text-gold-DEFAULT">Returns & Exchanges</Link>
-              </li>
-              <li>
-                <Link to="/help/sizing" className="text-gray-300 hover:text-gold-DEFAULT">Sizing Guide</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-gold-DEFAULT">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-gold-DEFAULT">About Dahab.mode</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-medium mb-4 text-white">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin size={18} className="mr-2 mt-1 text-gold-DEFAULT" />
-                <span className="text-gray-300">123 Fashion Street, Dubai, UAE</span>
-              </li>
-              <li className="flex items-center">
-                <Phone size={18} className="mr-2 text-gold-DEFAULT" />
-                <a href="tel:+9715012345678" className="text-gray-300 hover:text-gold-DEFAULT">+971 50 123 45678</a>
-              </li>
-              <li className="flex items-center">
-                <Mail size={18} className="mr-2 text-gold-DEFAULT" />
-                <a href="mailto:info@dahab.mode.com" className="text-gray-300 hover:text-gold-DEFAULT">info@dahab.mode.com</a>
-              </li>
-            </ul>
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-2 text-white">Subscribe to our newsletter</h4>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="px-4 py-2 w-full rounded-l-md text-gray-900 focus:outline-none focus:ring-1 focus:ring-gold-DEFAULT"
-                />
-                <button className="bg-gold-DEFAULT hover:bg-gold-dark px-4 py-2 rounded-r-md">
-                  Subscribe
-                </button>
-              </div>
-            </div>
+            <h3 className="text-lg font-semibold mb-4 text-white">Restez informé·e</h3>
+            <p className="text-gray-300 text-sm mb-4">
+              Inscrivez-vous pour recevoir les dates clés des salons, les journées portes ouvertes et les webinaires d’orientation
+              dédiés au bac pro CIEL.
+            </p>
+            <form className="space-y-3">
+              <input
+                type="email"
+                name="newsletter"
+                placeholder="Votre email"
+                className="w-full px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-gold"
+              />
+              <button
+                type="submit"
+                className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-2 rounded-md transition-colors"
+              >
+                Je m’inscris
+              </button>
+            </form>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="pt-8 border-t border-gray-700 text-sm text-gray-400">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p>&copy; {new Date().getFullYear()} Dahab.mode. All rights reserved.</p>
-            <div className="flex space-x-6">
-              <Link to="/privacy-policy" className="hover:text-gold-DEFAULT">Privacy Policy</Link>
-              <Link to="/terms-conditions" className="hover:text-gold-DEFAULT">Terms & Conditions</Link>
-              <Link to="/sitemap" className="hover:text-gold-DEFAULT">Sitemap</Link>
-            </div>
+        <div className="pt-8 border-t border-gray-700 text-sm text-gray-400 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p>&copy; {new Date().getFullYear()} Cap Avenir CIEL. Ressource indépendante inspirée d’Onisep et de l’Étudiant.</p>
+          <div className="flex flex-wrap gap-6">
+            <a href="https://www.onisep.fr" target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+              Onisep
+            </a>
+            <a href="https://www.letudiant.fr" target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+              L’Étudiant
+            </a>
+            <a href="#hero" className="hover:text-gold">Haut de page</a>
           </div>
         </div>
       </div>

@@ -67,11 +67,11 @@ const ProductDetailPage = () => {
   // Get stock status
   const getStockStatus = () => {
     if (product.stock > 10) {
-      return <span className="text-success-DEFAULT">In Stock</span>;
+      return <span className="text-success">In Stock</span>;
     } else if (product.stock > 0) {
-      return <span className="text-warning-DEFAULT">Low Stock - Only {product.stock} left</span>;
+      return <span className="text-warning">Low Stock - Only {product.stock} left</span>;
     } else {
-      return <span className="text-error-DEFAULT">Out of Stock</span>;
+      return <span className="text-error">Out of Stock</span>;
     }
   };
   
@@ -86,11 +86,11 @@ const ProductDetailPage = () => {
         {/* Breadcrumb */}
         <div className="mb-8">
           <div className="flex items-center text-sm text-gray-500">
-            <Link to="/" className="hover:text-teal-DEFAULT">Home</Link>
+            <Link to="/" className="hover:text-teal">Home</Link>
             <ChevronRight size={16} className="mx-2" />
-            <Link to="/products" className="hover:text-teal-DEFAULT">Products</Link>
+            <Link to="/products" className="hover:text-teal">Products</Link>
             <ChevronRight size={16} className="mx-2" />
-            <span className="text-navy-DEFAULT">{product.name}</span>
+            <span className="text-navy">{product.name}</span>
           </div>
         </div>
         
@@ -120,7 +120,7 @@ const ProductDetailPage = () => {
               variants={fadeIn}
             >
               {product.isNew && (
-                <span className="inline-block bg-gold-DEFAULT text-white text-sm px-3 py-1 rounded-full mb-4">
+                <span className="inline-block bg-gold text-white text-sm px-3 py-1 rounded-full mb-4">
                   New Arrival
                 </span>
               )}
@@ -128,7 +128,7 @@ const ProductDetailPage = () => {
               <h1 className="text-2xl md:text-3xl font-heading font-semibold mb-2">{product.name}</h1>
               
               <div className="flex items-center mb-4">
-                <div className="flex text-gold-DEFAULT">
+                <div className="flex text-gold">
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
@@ -154,7 +154,7 @@ const ProductDetailPage = () => {
                       key={color}
                       className={`px-4 py-2 rounded-md border ${
                         selectedColor === color 
-                          ? 'border-teal-DEFAULT text-teal-DEFAULT' 
+                          ? 'border-teal text-teal' 
                           : 'border-gray-300 hover:border-teal-light'
                       }`}
                       onClick={() => setSelectedColor(color)}
@@ -173,7 +173,7 @@ const ProductDetailPage = () => {
                       key={size}
                       className={`w-12 h-12 flex items-center justify-center rounded-md border ${
                         selectedSize === size 
-                          ? 'border-teal-DEFAULT text-teal-DEFAULT' 
+                          ? 'border-teal text-teal' 
                           : 'border-gray-300 hover:border-teal-light'
                       }`}
                       onClick={() => setSelectedSize(size)}
@@ -234,7 +234,7 @@ const ProductDetailPage = () => {
               
               <div className="border border-gray-200 rounded-md p-4 mb-6">
                 <div className="flex items-start">
-                  <Truck size={20} className="text-teal-DEFAULT mr-3 mt-1" />
+                  <Truck size={20} className="text-teal mr-3 mt-1" />
                   <div>
                     <p className="font-medium">Free Shipping</p>
                     <p className="text-sm text-gray-600">On orders over $100. Delivery estimate: 5-7 business days</p>
@@ -250,8 +250,8 @@ const ProductDetailPage = () => {
               <button 
                 className={`px-6 py-4 font-medium text-sm focus:outline-none ${
                   activeTab === 'description' 
-                    ? 'border-b-2 border-teal-DEFAULT text-teal-DEFAULT' 
-                    : 'text-gray-600 hover:text-teal-DEFAULT'
+                    ? 'border-b-2 border-teal text-teal' 
+                    : 'text-gray-600 hover:text-teal'
                 }`}
                 onClick={() => setActiveTab('description')}
               >
@@ -260,8 +260,8 @@ const ProductDetailPage = () => {
               <button 
                 className={`px-6 py-4 font-medium text-sm focus:outline-none ${
                   activeTab === 'features' 
-                    ? 'border-b-2 border-teal-DEFAULT text-teal-DEFAULT' 
-                    : 'text-gray-600 hover:text-teal-DEFAULT'
+                    ? 'border-b-2 border-teal text-teal' 
+                    : 'text-gray-600 hover:text-teal'
                 }`}
                 onClick={() => setActiveTab('features')}
               >
@@ -270,8 +270,8 @@ const ProductDetailPage = () => {
               <button 
                 className={`px-6 py-4 font-medium text-sm focus:outline-none ${
                   activeTab === 'reviews' 
-                    ? 'border-b-2 border-teal-DEFAULT text-teal-DEFAULT' 
-                    : 'text-gray-600 hover:text-teal-DEFAULT'
+                    ? 'border-b-2 border-teal text-teal' 
+                    : 'text-gray-600 hover:text-teal'
                 }`}
                 onClick={() => setActiveTab('reviews')}
               >
@@ -298,7 +298,7 @@ const ProductDetailPage = () => {
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-teal-DEFAULT mr-2">✓</span>
+                        <span className="text-teal mr-2">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -319,7 +319,7 @@ const ProductDetailPage = () => {
                     {/* Sample reviews - in a real app, these would come from an API */}
                     <div className="border-b border-gray-200 pb-6">
                       <div className="flex items-center mb-2">
-                        <div className="flex text-gold-DEFAULT">
+                        <div className="flex text-gold">
                           {[...Array(5)].map((_, i) => (
                             <Star 
                               key={i} 
@@ -339,7 +339,7 @@ const ProductDetailPage = () => {
                     
                     <div className="border-b border-gray-200 pb-6">
                       <div className="flex items-center mb-2">
-                        <div className="flex text-gold-DEFAULT">
+                        <div className="flex text-gold">
                           {[...Array(5)].map((_, i) => (
                             <Star 
                               key={i} 
@@ -387,14 +387,14 @@ const ProductDetailPage = () => {
                     />
                   </Link>
                   {product.isNew && (
-                    <span className="absolute top-4 left-4 bg-gold-DEFAULT text-white text-sm px-2 py-1 rounded">
+                    <span className="absolute top-4 left-4 bg-gold text-white text-sm px-2 py-1 rounded">
                       New
                     </span>
                   )}
                 </div>
                 <div className="p-4 flex-grow flex flex-col">
                   <h3 className="font-medium text-md mb-1">
-                    <Link to={`/products/${product.id}`} className="hover:text-teal-DEFAULT">
+                    <Link to={`/products/${product.id}`} className="hover:text-teal">
                       {product.name}
                     </Link>
                   </h3>

@@ -116,7 +116,7 @@ const CartPage = () => {
                           />
                         </div>
                         <div className="ml-4">
-                          <Link to={`/products/${item.id}`} className="font-medium hover:text-teal-DEFAULT">
+                          <Link to={`/products/${item.id}`} className="font-medium hover:text-teal">
                             {item.name}
                           </Link>
                           <div className="text-sm text-gray-500 mt-1">
@@ -185,7 +185,7 @@ const CartPage = () => {
                 ))}
                 
                 <div className="p-4 bg-gray-50 flex justify-between">
-                  <Link to="/products" className="text-teal-DEFAULT hover:text-teal-dark flex items-center">
+                  <Link to="/products" className="text-teal hover:text-teal-dark flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 mr-2">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
@@ -216,7 +216,7 @@ const CartPage = () => {
                     <div className="flex justify-between">
                       <span className="text-gray-600">Shipping</span>
                       {shipping === 0 ? (
-                        <span className="text-success-DEFAULT">Free</span>
+                        <span className="text-success">Free</span>
                       ) : (
                         <span>${shipping.toFixed(2)}</span>
                       )}
@@ -227,7 +227,7 @@ const CartPage = () => {
                     </div>
                     
                     {appliedCoupon && (
-                      <div className="flex justify-between text-success-DEFAULT">
+                      <div className="flex justify-between text-success">
                         <span className="flex items-center">
                           Discount ({appliedCoupon})
                           <button 
@@ -263,7 +263,7 @@ const CartPage = () => {
                       className="form-input flex-grow rounded-r-none"
                     />
                     <button 
-                      className="bg-teal-DEFAULT text-white px-4 py-2 rounded-r-md hover:bg-teal-dark"
+                      className="bg-teal text-white px-4 py-2 rounded-r-md hover:bg-teal-dark"
                       onClick={applyCoupon}
                     >
                       Apply
