@@ -123,9 +123,9 @@ const ProductsPage = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-heading font-semibold mb-2">Shop Burkinis</h1>
           <div className="flex items-center text-sm text-gray-500">
-            <Link to="/" className="hover:text-teal-DEFAULT">Home</Link>
+            <Link to="/" className="hover:text-teal">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-navy-DEFAULT">Products</span>
+            <span className="text-navy">Products</span>
           </div>
         </div>
         
@@ -149,7 +149,7 @@ const ProductsPage = () => {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-medium">Filters</h2>
                 <button 
-                  className="text-sm text-teal-DEFAULT hover:text-teal-dark"
+                  className="text-sm text-teal hover:text-teal-dark"
                   onClick={clearFilters}
                 >
                   Clear All
@@ -161,10 +161,10 @@ const ProductsPage = () => {
                 <h3 className="text-md font-medium mb-3">Categories</h3>
                 <div className="space-y-2">
                   <div 
-                    className={`cursor-pointer flex items-center ${categoryFilter === '' ? 'text-teal-DEFAULT' : ''}`}
+                    className={`cursor-pointer flex items-center ${categoryFilter === '' ? 'text-teal' : ''}`}
                     onClick={() => setCategoryFilter('')}
                   >
-                    <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${categoryFilter === '' ? 'bg-teal-DEFAULT border-teal-DEFAULT text-white' : 'border-gray-300'}`}>
+                    <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${categoryFilter === '' ? 'bg-teal border-teal text-white' : 'border-gray-300'}`}>
                       {categoryFilter === '' && <span>✓</span>}
                     </span>
                     <span>All Categories</span>
@@ -172,10 +172,10 @@ const ProductsPage = () => {
                   {categories.map(category => (
                     <div 
                       key={category.id}
-                      className={`cursor-pointer flex items-center ${categoryFilter === category.id ? 'text-teal-DEFAULT' : ''}`}
+                      className={`cursor-pointer flex items-center ${categoryFilter === category.id ? 'text-teal' : ''}`}
                       onClick={() => setCategoryFilter(category.id)}
                     >
-                      <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${categoryFilter === category.id ? 'bg-teal-DEFAULT border-teal-DEFAULT text-white' : 'border-gray-300'}`}>
+                      <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${categoryFilter === category.id ? 'bg-teal border-teal text-white' : 'border-gray-300'}`}>
                         {categoryFilter === category.id && <span>✓</span>}
                       </span>
                       <span>{category.name}</span>
@@ -247,10 +247,10 @@ const ProductsPage = () => {
               {/* New Arrivals */}
               <div className="mb-6">
                 <div 
-                  className={`cursor-pointer flex items-center ${showNewOnly ? 'text-teal-DEFAULT' : ''}`}
+                  className={`cursor-pointer flex items-center ${showNewOnly ? 'text-teal' : ''}`}
                   onClick={() => setShowNewOnly(!showNewOnly)}
                 >
-                  <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${showNewOnly ? 'bg-teal-DEFAULT border-teal-DEFAULT text-white' : 'border-gray-300'}`}>
+                  <span className={`mr-2 w-4 h-4 border rounded-sm flex items-center justify-center ${showNewOnly ? 'bg-teal border-teal text-white' : 'border-gray-300'}`}>
                     {showNewOnly && <span>✓</span>}
                   </span>
                   <span>New Arrivals Only</span>
@@ -368,11 +368,11 @@ const ProductsPage = () => {
                         />
                       </Link>
                       {product.isNew && (
-                        <span className="absolute top-4 left-4 bg-gold-DEFAULT text-white text-sm px-2 py-1 rounded">
+                        <span className="absolute top-4 left-4 bg-gold text-white text-sm px-2 py-1 rounded">
                           New
                         </span>
                       )}
-                      <button className="absolute top-4 right-4 bg-white p-2 rounded-full text-navy-dark hover:text-teal-DEFAULT transition-colors">
+                      <button className="absolute top-4 right-4 bg-white p-2 rounded-full text-navy-dark hover:text-teal transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
@@ -380,7 +380,7 @@ const ProductsPage = () => {
                     </div>
                     <div className="p-4 flex-grow flex flex-col">
                       <div className="flex items-center mb-2">
-                        <div className="flex text-gold-DEFAULT">
+                        <div className="flex text-gold">
                           {[...Array(5)].map((_, i) => (
                             <Star 
                               key={i} 
@@ -392,7 +392,7 @@ const ProductsPage = () => {
                         <span className="ml-2 text-sm text-gray-500">({product.reviews})</span>
                       </div>
                       <h3 className="font-medium text-lg mb-1">
-                        <Link to={`/products/${product.id}`} className="hover:text-teal-DEFAULT">
+                        <Link to={`/products/${product.id}`} className="hover:text-teal">
                           {product.name}
                         </Link>
                       </h3>

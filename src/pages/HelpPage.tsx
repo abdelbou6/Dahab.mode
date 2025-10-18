@@ -104,7 +104,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'all' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('all')}
@@ -114,7 +114,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'product' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('product')}
@@ -124,7 +124,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'sizing' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('sizing')}
@@ -134,7 +134,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'shipping' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('shipping')}
@@ -144,7 +144,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'returns' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('returns')}
@@ -154,7 +154,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'payment' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('payment')}
@@ -164,7 +164,7 @@ const HelpPage = () => {
           <button 
             className={`px-4 py-2 rounded-full text-sm ${
               activeTab === 'orders' 
-                ? 'bg-teal-DEFAULT text-white' 
+                ? 'bg-teal text-white' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
             onClick={() => setActiveTab('orders')}
@@ -184,7 +184,7 @@ const HelpPage = () => {
                 >
                   <span className="font-medium">{faq.question}</span>
                   {openFaqId === faq.id ? (
-                    <ChevronUp size={18} className="text-teal-DEFAULT" />
+                    <ChevronUp size={18} className="text-teal" />
                   ) : (
                     <ChevronDown size={18} className="text-gray-400" />
                   )}
@@ -224,7 +224,7 @@ const HelpPage = () => {
               <p className="text-gray-600 mb-4">
                 Learn about shipping methods, delivery times, and tracking your order.
               </p>
-              <Link to="/help/shipping" className="text-teal-DEFAULT hover:text-teal-dark font-medium">
+              <Link to="/help/shipping" className="text-teal hover:text-teal-dark font-medium">
                 View Shipping Details →
               </Link>
             </div>
@@ -234,7 +234,7 @@ const HelpPage = () => {
               <p className="text-gray-600 mb-4">
                 Our hassle-free return policy and step-by-step guide to returns.
               </p>
-              <Link to="/help/returns" className="text-teal-DEFAULT hover:text-teal-dark font-medium">
+              <Link to="/help/returns" className="text-teal hover:text-teal-dark font-medium">
                 View Return Policy →
               </Link>
             </div>
@@ -244,7 +244,7 @@ const HelpPage = () => {
               <p className="text-gray-600 mb-4">
                 Find your perfect fit with our detailed size charts and measuring guide.
               </p>
-              <Link to="/help/sizing" className="text-teal-DEFAULT hover:text-teal-dark font-medium">
+              <Link to="/help/sizing" className="text-teal hover:text-teal-dark font-medium">
                 View Size Guide →
               </Link>
             </div>
